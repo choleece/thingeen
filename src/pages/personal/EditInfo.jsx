@@ -1,11 +1,16 @@
 import React from 'react';
 
-import { InputItem, Radio } from 'antd-mobile';
+import { InputItem, Radio, Button } from 'antd-mobile';
 
 const RadioItem = Radio.RadioItem;
 
 import { parseUrl } from "../../utils/url";
-import {pageInfo} from "../../constants/pageInfo";
+import { pageInfo } from "../../constants/pageInfo";
+
+import { isStrEmpty } from "../../utils/util";
+
+import '../../assets/styles/widget/buttom.less';
+import { updateUserInfo } from "../../services/api";
 
 class EditInfo extends React.Component {
 
@@ -13,9 +18,10 @@ class EditInfo extends React.Component {
         super(props);
         this.queryObj = parseUrl(this.props.history.location.search);
         this.state = {
-            value: this.queryObj.value,
+            value: '',
             hasErr: false
         }
+        this.handleClick = this.handleClick.bind(this);
     }
 
     onChange = (value) => {
@@ -53,8 +59,15 @@ class EditInfo extends React.Component {
         return (
             <div>
                 { this.renderInput(this.props.match.params.code) }
+                <div style={{marginTop: 50, paddingLeft: '10%', paddingRight: '10%'}}>
+                    <Button className={isStrEmpty(this.state.value) ? 'button' : 'button_active'} disabled={isStrEmpty(this.state.value)} onClick={this.handleClick.bind(this, this.props.match.params.code)}>提交</Button>
+                </div>
             </div>
         )
+    }
+
+    handleClick = (editCode) => {
+        updateUserInfo(this.props.history, editCode, this.state.value);
     }
 }
 

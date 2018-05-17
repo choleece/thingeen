@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Carousel, WingBlank } from 'antd-mobile';
 
-import './styles/caroursel.css';
-
 /**
  * 琴行详情
  */

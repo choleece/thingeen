@@ -9,3 +9,9 @@ export const GEN_HARM_LIST = 'GEN_HARM_LIST';
  * @type {string}
  */
 export const ADD_PAGE_INDEX = 'ADD_PAGE_INDEX';
+
+/**
+ * 更新用户信息
+ * @type {string}
+ */
+export const UPDATE_USER_INFO = 'UPDATE_USER_INFO';

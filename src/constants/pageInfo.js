@@ -1,6 +1,6 @@
 export const pageInfo = {
     EditName: {
-        code: 'name',
+        code: 'userName',
         title: '修改姓名'
     },
     EditSex: {
@@ -12,7 +12,7 @@ export const pageInfo = {
         title: '修改电话'
     },
     EditMail: {
-        code: 'mail',
+        code: 'email',
         title: '修改邮箱'
     },
     EditAddress: {

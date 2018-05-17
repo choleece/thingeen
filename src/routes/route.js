@@ -12,12 +12,10 @@ export const intoHarmDetailPage = (ctx, oOrganization) => {
 
 /**
  * 跳转到基本信息修改页
- * @param ctx
+ * @param browserHistory
  * @param pageInfo
  * @param value
  */
-export const intoInfoEditPage = (ctx, pageInfo, value) => {
-    let { browserHistory } = ctx.props;
-
+export const intoInfoEditPage = (browserHistory, pageInfo, value) => {
     browserHistory.push(`/personal/${pageInfo.code}?title=${pageInfo.title}&value=${value}`);
-}
+};

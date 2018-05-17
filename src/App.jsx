@@ -7,6 +7,8 @@ import PersonalPage from './containers/PersonalPage';
 
 import { PageName } from './constants/pageName';
 
+import './assets/styles/app.less';
+
 class App extends React.Component {
     constructor(props) {
         super(props);
