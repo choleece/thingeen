@@ -4,7 +4,7 @@
  */
 export const PageName = {
     homePage: {
-        title: '首页',
+        title: '关注',
         key: 'HOME'
     },
     personalPage: {

@@ -42,7 +42,7 @@ class EditInfo extends React.Component {
                 return <InputItem placeholder='输入您的地址' maxLength={30} onChange={value => this.setState({value})} value={this.state.value}/>
             case pageInfo.EditSex.code:
                 return [{label: '男', value: 'M'}, {label: '女', value: 'F'}].map(i =>
-                            <RadioItem key={i.value} checked={this.state.value === i.value} onClick={this.onChange.bind(this, i.value)}>
+                            <RadioItem key={i.value} checked={this.state.value === i.value} onClick={() => updateUserInfo(code, i.label, this.props.history)}>
                                 {i.label}
                             </RadioItem>
                         )
@@ -59,15 +59,20 @@ class EditInfo extends React.Component {
         return (
             <div>
                 { this.renderInput(this.props.match.params.code) }
-                <div style={{marginTop: 50, paddingLeft: '10%', paddingRight: '10%'}}>
-                    <Button className={isStrEmpty(this.state.value) ? 'button' : 'button_active'} disabled={isStrEmpty(this.state.value)} onClick={this.handleClick.bind(this, this.props.match.params.code)}>提交</Button>
-                </div>
+                {
+                    this.props.match.params.code === pageInfo.EditSex.code ?
+                        null
+                        :
+                        <div style={{marginTop: 50, paddingLeft: '10%', paddingRight: '10%'}}>
+                            <Button className={isStrEmpty(this.state.value) ? 'button' : 'button_active'} disabled={isStrEmpty(this.state.value)} onClick={this.handleClick.bind(this, this.props.match.params.code)}>提交</Button>
+                        </div>
+                }
             </div>
         )
     }
 
     handleClick = (editCode) => {
-        updateUserInfo(this.props.history, editCode, this.state.value);
+        updateUserInfo(editCode, this.state.value, this.props.history);
     }
 }
 

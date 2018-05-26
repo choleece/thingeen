@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { List, DatePicker, ImagePicker } from 'antd-mobile';
 import { intoInfoEditPage } from "../../routes/route";
 import { pageInfo } from "../../constants/pageInfo";
+import { updateUserInfo } from "../../services/api";
 
 const Item = List.Item;
 
@@ -25,8 +26,10 @@ class Index extends React.Component {
                         mode="date"
                         title="选择日期"
                         extra="生日"
+                        minDate={new Date('1900-01-01')}
+                        maxDate={new Date()}
                         value={new Date(userInfo.birthday)}
-                        onChange={date => this.setState({ date })}
+                        onChange={date => updateUserInfo(pageInfo.EditBirthday.code, date)}
                     >
                         <List.Item arrow="horizontal">生日</List.Item>
                     </DatePicker>

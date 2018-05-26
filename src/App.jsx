@@ -13,7 +13,7 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: PageName.personalPage.key,
+            selectedTab: PageName.homePage.key,
             hidden: false
         };
     }

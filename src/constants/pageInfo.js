@@ -18,5 +18,8 @@ export const pageInfo = {
     EditAddress: {
         code: 'address',
         title: '修改地址'
+    },
+    EditBirthday: {
+        code: 'birthday'
     }
 }

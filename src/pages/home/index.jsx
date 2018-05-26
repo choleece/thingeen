@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-import { SearchBar, ListView } from 'antd-mobile';
+import { WingBlank, ListView } from 'antd-mobile';
 
 import HardItem from '../../components/HarpItem.jsx';
 import Spin from '../../components/Gif';
@@ -27,7 +27,7 @@ class Index extends React.Component {
 
     componentDidMount() {
         if (this.props.harmList.length === 0) {
-            genHarmList(this, this.props.pageIndex + 1, this.numRows);
+            genHarmList(this.props.pageIndex + 1, this.numRows);
         } else {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(this.props.harmList),
@@ -49,17 +49,15 @@ class Index extends React.Component {
     render() {
         const row = (rowData) => {
             return (
-                <HardItem oOrganization={rowData.nameIndex} handleClick={() => (intoHarmDetailPage(this, rowData.oOrganization))}/>
+                <HardItem forgnization={rowData.forgnization} fpic={rowData.fpic} foname={rowData.foname} fctime={rowData.fctime} handleClick={() => (intoHarmDetailPage(this, rowData.forganization))}/>
             );
         };
 
         return (
-            <div style={{height: window.screen.height}}>
-                <SearchBar placeholder='搜索您感兴趣的琴行'/>
+            <WingBlank size='md'>
                 <ListView
                     ref={el => this.lv = el}
                     dataSource={this.state.dataSource}
-                    renderHeader={() => {}}
                     renderFooter={() => (<div style={{ padding: 10, textAlign: 'center' }}>
                         {this.state.isLoading ? <Spin/> : this.state.hasMore ? '---Loaded---' : "---别扯啦，到底了---"}
                     </div>)}
@@ -71,19 +69,16 @@ class Index extends React.Component {
                     onEndReached={this.onEndReached}
                     onEndReachedThreshold={50}
                 />
-            </div>
+            </WingBlank>
         );
     }
 
     onEndReached = () => {
-        // load new data
-        // hasMore: from backend data, indicates whether it is the last page, here is false
         if (this.state.isLoading || !this.state.hasMore) {
             return;
         }
-        console.log('reach the end...')
         this.setState({ isLoading: true});
-        genHarmList(this, this.props.pageIndex + 1, this.numRows);
+        genHarmList(this.props.pageIndex + 1, this.numRows);
         this.setState({ isLoading: false});
     };
 }
