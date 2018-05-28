@@ -6,7 +6,7 @@ import { WingBlank, ListView } from 'antd-mobile';
 
 import HardItem from '../../components/HarpItem.jsx';
 import Spin from '../../components/Gif';
-import {genHarmList} from "../../actions/home"
+import {genFocusHarmList} from "../../services/home"
 import {intoHarmDetailPage} from "../../routes/route";
 
 class Index extends React.Component {
@@ -27,7 +27,7 @@ class Index extends React.Component {
 
     componentDidMount() {
         if (this.props.harmList.length === 0) {
-            genHarmList(this.props.pageIndex + 1, this.numRows);
+            genFocusHarmList(this.props.pageIndex + 1, this.numRows);
         } else {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(this.props.harmList),
@@ -78,7 +78,7 @@ class Index extends React.Component {
             return;
         }
         this.setState({ isLoading: true});
-        genHarmList(this.props.pageIndex + 1, this.numRows);
+        genFocusHarmList(this.props.pageIndex + 1, this.numRows);
         this.setState({ isLoading: false});
     };
 }
