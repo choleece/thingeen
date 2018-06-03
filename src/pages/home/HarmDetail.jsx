@@ -2,6 +2,7 @@ import React from 'react';
 
 import { WingBlank, Button, ActionSheet } from 'antd-mobile';
 import {changeFocusStatus, getFocusStatus, getHarmDetail} from "../../services/home";
+import plus from '../../assets/images/plus.png';
 
 /**
  * 琴行详情
@@ -35,7 +36,7 @@ class HarmDetail extends React.Component {
         },
         (buttonIndex) => {
             console.log(buttonIndex);
-            changeFocusStatus(this.organizetionId)(this);
+            changeFocusStatus(this.organizetionId, true)(this);
         });
     }
 
@@ -45,9 +46,8 @@ class HarmDetail extends React.Component {
 
         return (
             <WingBlank size='sm'>
-                <Button loading = {focusLoading} onClick={this.showUnfollowSheet}>{focusText}</Button>
+                <Button icon={<img src={plus}/>} onClick={this.showUnfollowSheet} type="primary" inline size="small">{focusText}</Button>
                 <img src={oPic} style={{width: '100%'}}/>
-                <div>详情</div>
                 <div>{oIntro}</div>
                 <div>{oName}</div>
                 <div>{oAddress}</div>

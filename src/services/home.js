@@ -23,11 +23,11 @@ export const getHarmDetail = organizationId => ctx => {
     console.log(`---get harm detail api~ organizationId: ${organizationId}`);
     ctx.setState({
         oPic: 'https://unsplash.it/250/305?image=883',
-        oIntro: '琴行简介',
-        oName: '琴行联系人',
-        oAddress: '琴行地址',
-        oPhone: '琴行固话',
-        oDescribe: '琴行描述'
+        oIntro: '雅马哈立式钢琴拥有丰富的样式，能够满足所有弹奏者的需求。无论是家庭练习用琴，还是专业院校的教育用琴，都深受广大用户的喜爱',
+        oName: 'Cyber.Pan',
+        oAddress: '北京市西二旗',
+        oPhone: '010-59909999',
+        oDescribe: '雅马哈还是一个经营音乐普及事业、网络产品、体育用品、厨房卫浴用品、发动机、贴片机等其他各种产品的综合性国际集团'
     });
 };
 
@@ -47,9 +47,9 @@ export const getFocusStatus = organizationId => ctx => {
  * 改变关注状态，关注与取消关注
  * @param organizationId
  */
-export const changeFocusStatus = organizationId => ctx => {
+export const changeFocusStatus = (organizationId, status) => ctx => {
     console.log(`---change harm focus status api, follow or unfollow~organizationId: ${organizationId}`);
     ctx.setState({
-        focusText: '关注'
+        focusText: status ? '关注' : '取消关注'
     });
 }
