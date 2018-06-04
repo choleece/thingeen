@@ -1,0 +1,17 @@
+const ip = 'http://192.168.8.150';
+
+export const config = {
+    server_url: `${ip}:8870`
+};
+
+/**
+ * http 返回状态码
+ * @type {{SYS_200: string, SYS_400: string, SYS_500: string, SYS_700: string, SYS_900: string}}
+ */
+export const http_code = {
+    SYS_200: 'SYS_200',
+    SYS_400: 'SYS_400',
+    SYS_500: 'SYS_500',
+    SYS_700: 'SYS_700',
+    SYS_900: 'SYS_900'
+};

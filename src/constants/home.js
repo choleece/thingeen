@@ -11,6 +11,12 @@ export const GEN_HARM_LIST = 'GEN_HARM_LIST';
 export const ADD_PAGE_INDEX = 'ADD_PAGE_INDEX';
 
 /**
+ * 获取用户信息
+ * @type {string}
+ */
+export const INIT_USER_INFO = 'INIT_USER_INFO';
+
+/**
  * 更新用户信息
  * @type {string}
  */

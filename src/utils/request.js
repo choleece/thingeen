@@ -31,6 +31,7 @@ export default function request(url, options) {
             newOptions.headers = {
                 Accept: 'application/json',
                 'Content-Type': 'application/json; charset=utf-8',
+                'mode': 'no-cors',
                 ...newOptions.headers,
             };
             newOptions.body = JSON.stringify(newOptions.body);
@@ -38,6 +39,7 @@ export default function request(url, options) {
             // newOptions.body is FormData
             newOptions.headers = {
                 Accept: 'application/json',
+                'mode': 'no-cors',
                 ...newOptions.headers,
             };
         }

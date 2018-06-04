@@ -1,5 +1,7 @@
 import {ADD_PAGE_INDEX, GEN_HARM_LIST} from "../constants/home";
 import {batchedActions} from "../actions/batched";
+import request from '../utils/request';
+import { config } from "../constants/config";
 
 /**
  * 获取关注列表
@@ -7,6 +9,9 @@ import {batchedActions} from "../actions/batched";
  * @param pageSize
  */
 export const genFocusHarmList = (pageIndex = 0, pageSize = 10) => {
+    request(`${config.server_url}/focus/focusList.do?currentPage=1`).then(res => {
+        console.log(JSON.stringify(res));
+    });
     console.log(`----gen data...pageIndex: ${pageIndex} pageSize: ${pageSize}`);
     let records = [];
     for (let i = (pageIndex - 1) * pageSize ; i < pageIndex * pageSize; i++) {
