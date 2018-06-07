@@ -20,3 +20,22 @@ export const isMobile = mobile => {
     return mobileReg.test(mobile);
 };
 
+/**
+ * 判断一个对象是否为空
+ * @param obj
+ */
+export const isObjEmpty = obj => {
+    Object.keys(obj).every(item => { return isStrEmpty(obj[item]); })
+}
+
+/**
+ * 返回屏幕信息
+ * @returns {{width: Number, height: Number}}
+ */
+export const screenInfo = () => {
+    return {
+        width: window.screen.width,
+        height: window.screen.height
+    };
+}
+

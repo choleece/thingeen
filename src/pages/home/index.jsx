@@ -8,7 +8,6 @@ import HardItem from '../../components/HarpItem.jsx';
 import Spin from '../../components/Gif';
 import {genFocusHarmList} from "../../services/home"
 import {intoHarmDetailPage} from "../../routes/route";
-import { login } from "../../services/api";
 
 class Index extends React.Component {
 
@@ -51,7 +50,7 @@ class Index extends React.Component {
     render() {
         const row = (rowData) => {
             return (
-                <HardItem forgnization={rowData.forgnization} fpic={rowData.fpic} foname={rowData.foname} fctime={rowData.fctime} handleClick={() => {this.unLogin(); /*intoHarmDetailPage(this, rowData.forganization);*/}}/>
+                <HardItem forgnization={rowData.forgnization} fpic={rowData.fpic} foname={rowData.foname} fctime={rowData.fctime} handleClick={intoHarmDetailPage(this, rowData.forganization)}/>
             );
         };
 
@@ -83,17 +82,6 @@ class Index extends React.Component {
         genFocusHarmList(this.props.pageIndex + 1, this.numRows);
         this.setState({ isLoading: false});
     };
-
-    unLogin = () => {
-        Modal.prompt(
-            'Login',
-            'Please input login information',
-            (userName, passWord) => {console.log(`login: ${userName}, password: ${passWord}`); login(userName, passWord)},
-            'login-password',
-            null,
-            ['Please input name', 'Please input password'],
-        );
-    }
 }
 
 Index.propTypes = {

@@ -21,7 +21,7 @@ class Index extends React.Component {
                 <List>
                     <Item extra={<img src={userInfo.userPic} style={{height: 50, width: 50, borderRadius: 50}}/>} arrow="horizontal" onClick={() => {<input type='file' accept='image/*'/>}}>头像</Item>
                     <Item extra={userInfo.userName} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditName, userInfo.userName)}>用户名</Item>
-                    <Item extra={userInfo.userGender} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditSex, userInfo.sex)}>性别</Item>
+                    <Item extra={userInfo.userGender === 1 ? '男' : '女'} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditSex, userInfo.sex)}>性别</Item>
                     <Item extra={userInfo.userMobile} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditMobile, userInfo.mobile)}>电话</Item>
                     <DatePicker
                         mode="date"
@@ -34,7 +34,7 @@ class Index extends React.Component {
                     >
                         <List.Item arrow="horizontal">生日</List.Item>
                     </DatePicker>
-                    <Item extra={userInfo.userEmail} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditMail, userInfo.email)}>邮件</Item>
+                    <Item extra={userInfo.userMail} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditMail, userInfo.email)}>邮件</Item>
                     <Item extra={userInfo.userAddress} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditAddress, userInfo.address)}>住址</Item>
                 </List>
             </div>

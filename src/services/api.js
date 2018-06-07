@@ -7,7 +7,11 @@ import {config, http_code} from '../constants/config';
 
 export const login = (userName, passWord) => {
     request(`${config.server_url}/sys/login.do?userName=${userName}&passWord=${passWord}`, {method: 'POST'}).then(res => {
-        console.log(JSON.stringify(res));
+        if (res.data.syscode === http_code.SYS_200) {
+            console.log('登录成功');
+        } else {
+            Toast.fail(res.data.message);
+        }
     })
 }
 

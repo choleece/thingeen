@@ -6,6 +6,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store/index.js'
 
+import Login from './pages/Login.jsx'
 import App from './App.jsx'
 import HarmDerail from './pages/home/HarmDetail.jsx';
 import EditInfo from './pages/personal/EditInfo.jsx';
@@ -20,7 +21,8 @@ render(
     <Provider store ={store}>
         <Router history={history}>
             <div>
-                <Route exact = {true} path = '/' component = {App}/>
+                <Route exact = {true} path = '/login' component = {Login}/>
+                <Route exact = {true} path = '/app' component = {App}/>
                 <Route exact = {true} path = '/harm/:id' component = {HarmDerail}/>
                 <Route exact = {true} path = '/personal/:code' component = {EditInfo}/>
             </div>
