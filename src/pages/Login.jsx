@@ -5,8 +5,9 @@ import React from 'react';
 
 import { InputItem, Button, WingBlank, WhiteSpace } from 'antd-mobile';
 
-import {isMobile, isStrEmpty, screenInfo} from "../utils/util";
+import {isMobile, isStrEmpty } from "../utils/util";
 import { login } from "../services/api";
+import { screenInfo } from "../constants/constant";
 
 export default class Login extends React.Component {
 
@@ -37,7 +38,7 @@ export default class Login extends React.Component {
                     <WhiteSpace/>
                     <WhiteSpace/>
                     <WhiteSpace/>
-                    <Button type="primary" onClick={() => login(this.state.mobile, this.state.password)} disabled={!isMobile(this.state.mobile.replace(/\s/g, '')) || isStrEmpty(this.state.password)}>登录</Button>
+                    <Button type="primary" onClick={() => login(this.state.mobile, this.state.password)(this.props.history)} disabled={!isMobile(this.state.mobile.replace(/\s/g, '')) || isStrEmpty(this.state.password)}>登录</Button>
                 </div>
             </WingBlank>
         )

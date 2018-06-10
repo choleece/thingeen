@@ -23,7 +23,6 @@ class Index extends React.Component {
         };
 
         this.numRows = 15;
-        this.unLogin = this.unLogin.bind(this);
     }
 
     componentDidMount() {
@@ -50,7 +49,7 @@ class Index extends React.Component {
     render() {
         const row = (rowData) => {
             return (
-                <HardItem forgnization={rowData.forgnization} fpic={rowData.fpic} foname={rowData.foname} fctime={rowData.fctime} handleClick={intoHarmDetailPage(this, rowData.forganization)}/>
+                <HardItem forgnization={rowData.forgnization} fpic={rowData.fpic} foname={rowData.foname} fctime={rowData.fctime} handleClick={() => intoHarmDetailPage(this, rowData.forganization)}/>
             );
         };
 

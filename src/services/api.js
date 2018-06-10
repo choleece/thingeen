@@ -5,11 +5,14 @@ import { dispatchAction } from "../actions/common";
 import { UPDATE_USER_INFO, INIT_USER_INFO } from "../constants/home";
 import {config, http_code} from '../constants/config';
 
-export const login = (userName, passWord) => {
+export const login = (userName, passWord) => history => {
+    Toast.loading("登录中...");
     request(`${config.server_url}/sys/login.do?userName=${userName}&passWord=${passWord}`, {method: 'POST'}).then(res => {
         if (res.data.syscode === http_code.SYS_200) {
+            history.push('/app');
             console.log('登录成功');
         } else {
+            history.push('/app');
             Toast.fail(res.data.message);
         }
     })

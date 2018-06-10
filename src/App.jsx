@@ -9,6 +9,8 @@ import { PageName } from './constants/pageName';
 
 import './assets/styles/app.less';
 
+import { checkLogin } from "./utils/util";
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +18,10 @@ class App extends React.Component {
             selectedTab: PageName.homePage.key,
             hidden: false
         };
+    }
+
+    componentWillMount() {
+        checkLogin(this.props);
     }
 
     renderContent(pageKey) {

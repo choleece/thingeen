@@ -29,13 +29,12 @@ export const isObjEmpty = obj => {
 }
 
 /**
- * 返回屏幕信息
- * @returns {{width: Number, height: Number}}
+ * 检查是否有登录，如果没有登录，则调整到登录页
+ * @param props
  */
-export const screenInfo = () => {
-    return {
-        width: window.screen.width,
-        height: window.screen.height
-    };
+export const checkLogin = (props) => {
+    const token = localStorage.getItem('token');
+    if(!token){
+        props.history.replace({pathname: '/login'});
+    }
 }
-
