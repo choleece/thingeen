@@ -14,7 +14,6 @@ class Index extends React.Component {
     render() {
 
         let { userInfo, browserHistory } = this.props;
-        console.log(userInfo);
 
         return (
             <div>

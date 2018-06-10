@@ -9,7 +9,7 @@ import { pageInfo } from "../../constants/pageInfo";
 
 import { isStrEmpty } from "../../utils/util";
 
-import '../../assets/styles/widget/buttom.less';
+import '../../assets/styles/widget/button.less';
 import { updateUserInfo } from "../../services/api";
 
 class EditInfo extends React.Component {

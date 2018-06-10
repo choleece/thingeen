@@ -19,9 +19,9 @@ export default class Login extends React.Component {
 
     onChange = (value) => {
         if (value.replace(/\s/g, '').length === 11) {
-            this.setState({mobile: value, mobileErr: !isMobile(value.replace(/\s/g, ''))});
+            this.setState({mobile: value.replace(/\s/g, ''), mobileErr: !isMobile(value.replace(/\s/g, ''))});
         } else {
-            this.setState({mobile: value, mobileErr: false});
+            this.setState({mobile: value.replace(/\s/g, ''), mobileErr: false});
         }
 
     }

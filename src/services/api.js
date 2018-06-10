@@ -9,10 +9,10 @@ export const login = (userName, passWord) => history => {
     Toast.loading("登录中...");
     request(`${config.server_url}/sys/login.do?userName=${userName}&passWord=${passWord}`, {method: 'POST'}).then(res => {
         if (res.data.syscode === http_code.SYS_200) {
+            localStorage.setItem('token', '123456');
             history.push('/app');
-            console.log('登录成功');
+            Toast.success('登录成功');
         } else {
-            history.push('/app');
             Toast.fail(res.data.message);
         }
     })
