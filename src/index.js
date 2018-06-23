@@ -21,7 +21,7 @@ render(
     <Provider store ={store}>
         <Router history={history}>
             <div>
-                <Route exact = {true} path = '/' component = {App}/>
+                <Route exact = {true} path = '/harm' component = {App}/>
                 <Route exact = {true} path = '/harm/:id' component = {HarmDerail}/>
                 <Route exact = {true} path = '/personal/:code' component = {EditInfo}/>
                 <Route exact = {true} path = '/login' component = {Login}/>

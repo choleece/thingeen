@@ -13,7 +13,7 @@ export const login = (userName, passWord) => history => {
     Toast.loading("登录中...");
     request(`${config.server_url}/sys/login.do?userName=${userName}&passWord=${passWord}`, {method: 'POST'}).then(res => {
         if (res.data.syscode === http_code.SYS_200) {
-            history.replace('/');
+            history.replace('/harm');
             Toast.success('登录成功');
         } else {
             Toast.fail(res.data.message);
@@ -56,6 +56,7 @@ export const getUserInfo = () => history => {
  */
 export const genFocusHarmList = (pageIndex = 0, pageSize = 10) => history => ctx => {
     request(`${config.server_url}/focus/focusList.do?currentPage=1`).then(res => {
+        console.log(JSON.stringify(res));
         if (res.data.syscode === http_code.SYS_200) {
             log('pageIndex')(pageIndex);
             log('pageSize')(pageSize);
