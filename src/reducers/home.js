@@ -1,7 +1,7 @@
 import immutable from 'immutable'
-import {ADD_PAGE_INDEX, GEN_HARM_LIST} from "../constants/home";
+import { ADD_PAGE_INDEX, GEN_HARM_LIST } from "../constants/home";
 
-let defaultState = immutable.fromJS({pageIndex: 0});
+let defaultState = immutable.fromJS({pageIndex: 0, hasMore: true});
 
 export default function reducer(state = defaultState, action) {
     switch (action.type) {

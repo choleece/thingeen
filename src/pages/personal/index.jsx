@@ -17,8 +17,13 @@ class Index extends React.Component {
 
         return (
             <div>
+                <div className='avatar-bg'>
+                    <div className='flex-row-a-c'>
+                        <img src={userInfo.userPic} className='avatar'/>
+                        <div className='flex-column-j-c' style={{marginLeft: 20, fontSize: 20, color: '#fff', fontWeight: 'bold'}}>{userInfo.userName}</div>
+                    </div>
+                </div>
                 <List>
-                    <Item extra={<img src={userInfo.userPic} style={{height: 50, width: 50, borderRadius: 50}}/>} arrow="horizontal" onClick={() => {<input type='file' accept='image/*'/>}}>头像</Item>
                     <Item extra={userInfo.userName} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditName, userInfo.userName)}>用户名</Item>
                     <Item extra={userInfo.userGender === 1 ? '男' : '女'} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditSex, userInfo.sex)}>性别</Item>
                     <Item extra={userInfo.userMobile} arrow="horizontal" onClick={() => intoInfoEditPage(browserHistory, pageInfo.EditMobile, userInfo.mobile)}>电话</Item>
@@ -41,7 +46,7 @@ class Index extends React.Component {
     }
 
     componentDidMount() {
-        getUserInfo();
+        getUserInfo()(this.props.browserHistory);
     }
 }
 

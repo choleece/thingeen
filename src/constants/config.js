@@ -15,3 +15,11 @@ export const http_code = {
     SYS_700: 'SYS_700',
     SYS_900: 'SYS_900'
 };
+
+/**
+ * 服务器连接信息
+ * @type {{TIME_OUT: string}}
+ */
+export const http_msg = {
+    TIME_OUT: '网络链接超时...'
+}

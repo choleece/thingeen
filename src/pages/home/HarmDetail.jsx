@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { WingBlank, Button, ActionSheet } from 'antd-mobile';
-import {changeFocusStatus, getFocusStatus, getHarmDetail} from "../../services/home";
+import {changeFocusStatus, getFocusStatus, getHarmDetail} from "../../services/api";
 import plus from '../../assets/images/plus.png';
 
 /**

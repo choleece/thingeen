@@ -4,7 +4,7 @@
  * @returns {boolean}
  */
 export const isStrEmpty = str => {
-    return str === undefined || str === '';
+    return str === undefined || str === '' || str === null || str === 'undefined';
 };
 
 /* eslint no-useless-escape:0 */
@@ -32,9 +32,9 @@ export const isObjEmpty = obj => {
  * 检查是否有登录，如果没有登录，则调整到登录页
  * @param props
  */
-export const checkLogin = (props) => {
+export const checkLogin = (history) => {
     const token = localStorage.getItem('token');
     if(!token){
-        props.history.replace({pathname: '/login'});
+        history.replace({pathname: '/login'});
     }
 }
