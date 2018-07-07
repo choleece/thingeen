@@ -21,14 +21,6 @@ export const isMobile = mobile => {
 };
 
 /**
- * 判断一个对象是否为空
- * @param obj
- */
-export const isObjEmpty = obj => {
-    Object.keys(obj).every(item => { return isStrEmpty(obj[item]); })
-}
-
-/**
  * 检查是否有登录，如果没有登录，则调整到登录页
  * @param props
  */
@@ -38,3 +30,29 @@ export const checkLogin = (history) => {
         history.replace({pathname: '/login'});
     }
 }
+
+/**
+ * 判断对象是否为空
+ * @param obj
+ * @returns {*}
+ */
+export const isObjEmpty = obj => {
+    if (isStrEmpty(obj)) {
+        return {};
+    }
+    return Object.keys(obj).length === 0;
+};
+
+/**
+ * 解析obj
+ * @param obj
+ * @returns {{}}
+ */
+export const parseObj = obj => {
+    if (obj === undefined || obj === '') {
+        return {};
+    } else if (obj instanceof Object) {
+        return obj;
+    }
+    return JSON.parse(obj);
+};

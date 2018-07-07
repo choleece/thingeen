@@ -1,7 +1,9 @@
-const ip = 'http://192.168.8.150';
+// const ip = 'http://192.168.8.150:8870';
+
+const ip = 'https://www.brotech.club/userBiz';
 
 export const config = {
-    server_url: `${ip}:8870`
+    server_url: `${ip}`
 };
 
 /**
