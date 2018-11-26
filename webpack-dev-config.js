@@ -20,7 +20,7 @@ module.exports = {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         historyApiFallback: true,
-        openPage: './dist/index.html',
+        openPage: './',
         publicPath: '/',
         port: 8082
     },
@@ -37,7 +37,12 @@ module.exports = {
             {
                 test: /\.(png|jpg|gif|woff|svg)$/,
                 use: [
-                    'file-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            useRelativePath: process.env.NODE_ENV === 'production'
+                        }
+                    }
                 ]
             },
             {

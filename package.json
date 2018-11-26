@@ -5,6 +5,8 @@
   "dependencies": {
     "ajv": "^6.4.0",
     "antd-mobile": "^2.1.8",
+    "dva": "^2.2.3",
+    "fastclick": "^1.0.6",
     "history": "^4.7.2",
     "immutable": "^3.8.2",
     "prop-types": "^15.6.1",
@@ -36,6 +38,7 @@
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
     "redux-devtools-extension": "^2.13.2",
+    "serviceworker-webpack-plugin": "^1.0.0-alpha02",
     "style-loader": "^0.21.0",
     "sw-precache-webpack-plugin": "^0.11.5",
     "url-loader": "^1.0.1",
@@ -47,7 +50,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --config webpack-dev-config.js --env development --open -d --host 0.0.0.0",
-    "build": "webpack --config webpack-prod-config.js",
+    "build": "webpack --mode production --config webpack-prod-config.js",
     "eject": "react-scripts eject"
   }
 }

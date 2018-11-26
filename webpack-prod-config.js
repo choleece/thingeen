@@ -13,9 +13,8 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('pro')
-        }),
-        new webpack.optimize.UglifyJsPlugin()
+            'process.env.NODE_ENV': JSON.stringify('production')
+        })
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
